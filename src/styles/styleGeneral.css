@@ -1,0 +1,358 @@
+/* -------------------------------------------------------------------------------------------------- */
+/* Plantilla de colores */
+:root {
+  --color-fire: #ff7402;
+  --color-grass: #9bcc50;
+  --color-steel: #9eb7b8;
+  --color-water: #4592c4;
+  --color-psychic: #f366b9;
+  --color-ground: #ab9842;
+  --color-ice: #00d2fc;
+  --color-flying: #b39cd0;
+  --color-ghost: #4d5b64;
+  --color-normal: #a4acaf;
+  --color-poison: #7e0058;
+  --color-rock: #a38c21;
+  --color-fighting: #d56723;
+  --color-dark: #707070;
+  --color-bug: #729f3f;
+  --color-dragon: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  --color-electric: #f9f871;
+  --color-fairy: #fdb9e9;
+  --color-shadow: #7b62a3;
+  --color-unknow: #757575;
+
+  --color-primary: #006d77;
+  --color-primary-hover: #83c5be;
+
+  --color-text: #fff;
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos globales */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(https://c.wallhere.com/photos/5c/b1/Pok_mon_Gengar_Fractalius-245794.jpg!d);
+  background-image: url(https://w.forfun.com/fetch/7b/7b18be1395d99e3035b310dfc109cb40.jpeg);
+  background-size: cover;
+  height: 100vh;
+  /* background-repeat: no-repeat; */
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* navbar */
+.navbar__init {
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0 2rem;
+}
+.navbar__iconLogo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.navbar__logo {
+  height: 60px;
+  cursor: pointer;
+}
+.navbar__formListInfo {
+  display: flex;
+  gap: 1.5rem;
+}
+.navbar__iconMenu {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.navbar__list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  color: white;
+}
+.navbar__item {
+  cursor: pointer;
+}
+.navbar__link {
+  text-decoration: none;
+  color: inherit;
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* HomePage */
+.home__init {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* panel lateral desplegable */
+.checkPanel {
+  display: none;
+}
+.header__panel {
+  width: 300px;
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  left: -300px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.header__content {
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+}
+.header__panel::-webkit-scrollbar {
+  width: 5px;
+}
+.header__panel::-webkit-scrollbar-thumb {
+  background: teal;
+  border-radius: 10px;
+}
+.checkPanel:checked ~ .header__panel {
+  left: 0;
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* menu acordeon */
+.menuDropdown {
+  display: none;
+}
+.panel__container {
+  width: 100%;
+}
+.panel__container .menuDropdown {
+  display: none;
+}
+.label__title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #9c9494;
+  transition: all 8000ms ease;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 200px;
+}
+.option {
+  padding: 0.2rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #757373;
+  margin: 0.2rem 0;
+  cursor: pointer;
+}
+.option:hover {
+  background: #141e46;
+  color: white;
+}
+.label__title:hover {
+  box-shadow: 0 0 10px rgba(150, 7, 7, 0.68);
+}
+.content {
+  margin-left: 1rem;
+  transition: 150ms;
+  max-height: 0;
+  overflow: hidden;
+  list-style: none;
+}
+.content__items {
+  list-style: none;
+}
+.content__list {
+  margin: 0.2rem;
+  background: red;
+}
+.menuDropdown:checked ~ .content {
+  max-height: 120vh;
+  transition: 1s;
+}
+.menuDropdown:checked ~ .label__title .icon i::before {
+  content: "\f107";
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos de las cards de todos los pokemones */
+.cards__global {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 1rem;
+  max-width: 90%;
+  margin: 6rem auto;
+  transition: all 700ms ease;
+}
+.checkPanel:checked ~ .cards__global {
+  transition: all 500ms ease;
+  max-width: 70%;
+  float: right;
+  margin-right: 3rem;
+}
+.card__pokemon {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 0.3rem;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.card__imageposition {
+  text-align: center;
+}
+.card__image {
+  width: 60%;
+  /* margin: 0 auto; */
+  text-align: center;
+}
+/* .card__section {
+  background: var(--color-electric);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+} */
+.card__namePokemon {
+  text-align: center;
+}
+.card__types {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 auto;
+}
+.card__types__styles {
+  width: 60px;
+  padding: 2px 0;
+  text-align: center;
+  border-radius: 3px;
+  margin: 0.2rem 0;
+  font-size: 0.7rem;
+}
+.card__list__stats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 0.6rem;
+}
+.card__stat__name {
+  display: block;
+  text-align: center;
+}
+.card__card__stat {
+  display: flex;
+  justify-content: center;
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* Types of Pokemon */
+.water {
+  color: white;
+  background-color: var(--color-water);
+}
+.grass {
+  color: white;
+  background-color: var(--color-grass);
+}
+.poison {
+  color: white;
+  background-color: var(--color-poison);
+}
+.fire {
+  color: white;
+  background-color: var(--color-fire);
+}
+.bug {
+  color: white;
+  background-color: var(--color-bug);
+}
+.dragon {
+  color: white;
+  background: var(--color-dragon);
+}
+.flying {
+  color: white;
+  background-color: var(--color-flying);
+}
+.ground {
+  color: white;
+  background-color: var(--color-ground);
+}
+.steel {
+  color: white;
+  background-color: var(--color-steel);
+}
+.psychic {
+  background-color: var(--color-psychic);
+}
+.ice {
+  color: white;
+  background-color: var(--color-ice);
+}
+.ghost {
+  color: white;
+  background-color: var(--color-ghost);
+}
+.normal {
+  color: white;
+  background-color: var(--color-normal);
+}
+.rock {
+  color: white;
+  background-color: var(--color-rock);
+}
+.electric {
+  color: black;
+  background-color: var(--color-electric);
+}
+.fighting {
+  color: white;
+  background-color: var(--color-fighting);
+}
+.fairy {
+  background-color: var(--color-fairy);
+}
+.dark {
+  color: white;
+  background-color: var(--color-dark);
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* pagination */
+.pagination__button {
+  margin-bottom: 3rem;
+}
+.pagination__button button {
+  padding: 0 0.8rem;
+  background: #aed2ff;
+  box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6; 
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* app responsiva */
+@media( max-width: 500px){
+  .cards__global {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    gap: .5rem;
+    max-width: 90%;
+    margin: 6rem auto;
+    transition: all 700ms ease;
+  }
+  .checkPanel:checked ~ .cards__global {
+    transition: all 500ms ease;
+    max-width: 90%;
+    float: none;
+    margin: 6rem auto;  
+  }
+}
+/* -------------------------------------------------------------------------------------------------- */
