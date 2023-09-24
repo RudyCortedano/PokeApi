@@ -3,7 +3,7 @@ import "./styles/styleGeneral.css";
 import HomePage from "./pages/HomePage";
 import PokedexPage from "./pages/PokedexPage";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
-import PokedexIDPages from "./pages/PokedexIdPages";
+import PokedexIDPages from "./pages/PokedexIDPages";
 import { useDispatch, useSelector } from "react-redux";
 import { setCheckedSlice } from "./store/slices/check.slice";
 
