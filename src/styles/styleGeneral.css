@@ -38,15 +38,16 @@ body {
   background-image: url(https://c.wallhere.com/photos/5c/b1/Pok_mon_Gengar_Fractalius-245794.jpg!d);
   background-image: url(https://w.forfun.com/fetch/7b/7b18be1395d99e3035b310dfc109cb40.jpeg);
   background-size: cover;
-  height: 100vh;
-  /* background-repeat: no-repeat; */
+  /* height: 100vh; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* navbar */
 .navbar__init {
-  height: 70px;
   position: fixed;
   width: 100%;
+  height: 70px;
   border-bottom: 1px solid #fff;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
@@ -54,6 +55,7 @@ body {
   justify-content: space-between;
   gap: 1.5rem;
   padding: 0 2rem;
+  color: white;
 }
 .navbar__iconLogo {
   display: flex;
@@ -62,29 +64,29 @@ body {
 }
 .navbar__logo {
   height: 60px;
-  cursor: pointer;
-}
-.navbar__formListInfo {
-  display: flex;
-  gap: 1.5rem;
 }
 .navbar__iconMenu {
   color: white;
   font-size: 2rem;
   cursor: pointer;
 }
-.navbar__list {
+.navbar__formList {
   display: flex;
-  gap: 1rem;
-  list-style: none;
-  color: white;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }
-.navbar__item {
+.navbar__list{
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.navbar__item{
   cursor: pointer;
 }
-.navbar__link {
-  text-decoration: none;
+.navbar__link{
   color: inherit;
+  text-decoration: none;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* HomePage */
@@ -125,6 +127,15 @@ body {
 .checkPanel:checked ~ .header__panel {
   left: 0;
 }
+/* .headerExitPanel {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+} */
 /* -------------------------------------------------------------------------------------------------- */
 /* menu acordeon */
 .menuDropdown {
@@ -151,8 +162,9 @@ body {
   padding: 0.2rem 1rem;
   border-radius: 10px;
   border: 1px solid #757373;
-  margin: 0.2rem 0;
+  margin: 0.2rem 0.1rem;
   cursor: pointer;
+  display: block;
 }
 .option:hover {
   background: #141e46;
@@ -186,17 +198,11 @@ body {
 /* estilos de las cards de todos los pokemones */
 .cards__global {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
   gap: 1rem;
   max-width: 90%;
   margin: 6rem auto;
   transition: all 700ms ease;
-}
-.checkPanel:checked ~ .cards__global {
-  transition: all 500ms ease;
-  max-width: 70%;
-  float: right;
-  margin-right: 3rem;
 }
 .card__pokemon {
   background: rgba(255, 255, 255, 0.6);
@@ -207,6 +213,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 .card__imageposition {
   text-align: center;
@@ -216,13 +223,6 @@ body {
   /* margin: 0 auto; */
   text-align: center;
 }
-/* .card__section {
-  background: var(--color-electric);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-} */
 .card__namePokemon {
   text-align: center;
 }
@@ -335,24 +335,18 @@ body {
 .pagination__button button {
   padding: 0 0.8rem;
   background: #aed2ff;
-  box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6; 
+  box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* app responsiva */
-@media( max-width: 500px){
+@media (max-width: 800px) {
+  /* .navbar__formListInfo {
+    display: none;
+    gap: 1.5rem;
+  } */
   .cards__global {
-    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-    gap: .5rem;
-    max-width: 90%;
-    margin: 6rem auto;
-    transition: all 700ms ease;
-  }
-  .checkPanel:checked ~ .cards__global {
-    transition: all 500ms ease;
-    max-width: 90%;
-    float: none;
-    margin: 6rem auto;  
+    gap: 0.5rem;
   }
 }
 /* -------------------------------------------------------------------------------------------------- */

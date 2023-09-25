@@ -17,8 +17,8 @@ const HomePage = () => {
 
   return (
     <div className="home__init">
-      <h1>Pokedex</h1>
-      <h2>Hi Trainer!</h2>
+      <h1 className="home__title">Pokedex</h1>
+      <h2 className="home__welcome">Hi Trainer!</h2>
       <p>To start, please, enter your trainer name</p>
       <form onSubmit={handleTrainer}>
         <input ref={inputTrainer} type="text" />

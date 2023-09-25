@@ -14,8 +14,14 @@ const PokedexPage = () => {
   // console.log(nameTrainer);
 
   const url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=10000";
-  const [pokemons, getPokemons, getTypesPokemons, setInfoApi, hasError, loading] =
-    useFetch(url);
+  const [
+    pokemons,
+    getPokemons,
+    getTypesPokemons,
+    setInfoApi,
+    hasError,
+    loading,
+  ] = useFetch(url);
   // ------------------------------------------------------------------------------------------------//
   //  enpoints de pokemon general y por tipos
   const [inputValue, setInputValue] = useState("");
@@ -50,19 +56,30 @@ const PokedexPage = () => {
 
     setItemOffset(newOffset);
   };
+  // const countPaginate = users?.length >=  itemsPerPage;  
+  const paginateLimit = currentItems?.length >= itemsPerPage;
   // ------------------------------------------------------------------------------------------------//
 
   return (
     <>
-      <Navbar pokemons={pokemons}setInfoApi={setInfoApi}/>
+      <Navbar
+        setTypeSelected={setTypeSelected}
+        setInputValue={setInputValue} pokemons={pokemons}
+        setInfoApi={setInfoApi}
+      />
+
       <p>Hi {nameTrainer}</p>
 
-      <input type="checkbox"  className="checkPanel" id="checkPanel"/>
+      <input type="checkbox" className="checkPanel" id="checkPanel" />
       <header className="header__panel">
-        <div className="header__content">
-          {/* <SelectType setTypeSelected={setTypeSelected} /> */}
-          <Acoordion setTypeSelected={setTypeSelected} setInfoApi={setInfoApi}/>
+        <div className="header__content"> 
+          <Acoordion
+            setTypeSelected={setTypeSelected}
+            setInfoApi={setInfoApi}
+            setInputValue={setInputValue} 
+          />
         </div>
+      <label className="headerExitPanel" htmlFor="checkPanel"></label>
       </header>
 
       <div className="cards__global">
@@ -71,7 +88,11 @@ const PokedexPage = () => {
         ))}
       </div>
 
-      <PaginationAllPoke pageCount={pageCount} handleChange={handleChange} />
+      <PaginationAllPoke
+        pageCount={pageCount}
+        handleChange={handleChange} 
+        paginateLimit={paginateLimit}
+      />
     </>
   );
 };

@@ -1,25 +1,21 @@
 import React, { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
-const Acoordion = ({setTypeSelected, setInfoApi}) => {
+const Acoordion = ({setTypeSelected, setInputValue}) => {
     const url = `https://pokeapi.co/api/v2/type`;
     const [types, getTypes] = useFetch(url);
   
     useEffect (() => {
       getTypes()
-    }, [])
+    }, [types])
 
-    const [prueba, setPrueba] = useState()
-    console.log(prueba)
-  
-    // console.log(types)
   
     const handleChange = e =>{
       setTypeSelected( e.target.value)   
     }
   return (
-    <>
-      {/* <input type="checkbox" id="checkMenu" className="menu"/> */}
+    <> 
       <div className="panelLeft">
         <div className="panel__container" onChange={handleChange}>
           <input type="checkbox" id="checkDropdown" className="menuDropdown"/>         
@@ -33,7 +29,17 @@ const Acoordion = ({setTypeSelected, setInfoApi}) => {
           <div className="content"  >
           {
             types?.results.map(type =>(
-                <li onClick={() =>setTypeSelected(type.url)} className="option" value={type.url} key={type.url}>{type.name}</li>
+                <label 
+                  htmlFor="checkPanel"                 
+                  onClick={() =>{
+                    setTypeSelected(type.url)
+                    setInputValue("")
+                  }} 
+                  className="option" 
+                  key={type.url}          
+                >
+                  <div>{type.name}</div>
+                </label>
             ))
           }
           </div>
