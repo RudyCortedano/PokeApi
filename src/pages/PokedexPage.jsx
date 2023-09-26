@@ -42,13 +42,12 @@ const PokedexPage = () => {
   );
   // ------------------------------------------------------------------------------------------------//
   // paginacion
-  // Esta info va en el componente global useContext o redux
-  const itemsPerPage = 20;
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
 
   const currentItems = pokeFiltered?.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(pokemons?.results.length / itemsPerPage);
+  const pageCount = Math.ceil(pokeFiltered?.length / itemsPerPage);
 
   const handleChange = (event, value) => {
     const value2 = value - 1;
@@ -56,8 +55,7 @@ const PokedexPage = () => {
 
     setItemOffset(newOffset);
   };
-  // const countPaginate = users?.length >=  itemsPerPage;  
-  const paginateLimit = currentItems?.length >= itemsPerPage;
+  const paginateLimit = pokeFiltered?.length >= itemsPerPage;
   // ------------------------------------------------------------------------------------------------//
 
   return (
@@ -66,6 +64,7 @@ const PokedexPage = () => {
         setTypeSelected={setTypeSelected}
         setInputValue={setInputValue} pokemons={pokemons}
         setInfoApi={setInfoApi}
+        setItemOffset={setItemOffset}
       />
 
       <p>Hi {nameTrainer}</p>
@@ -73,19 +72,23 @@ const PokedexPage = () => {
       <input type="checkbox" className="checkPanel" id="checkPanel" />
       <header className="header__panel">
         <div className="header__content"> 
+
           <Acoordion
             setTypeSelected={setTypeSelected}
             setInfoApi={setInfoApi}
             setInputValue={setInputValue} 
+            setItemOffset={setItemOffset}
+            setItemsPerPage={setItemsPerPage}
           />
+
         </div>
       <label className="headerExitPanel" htmlFor="checkPanel"></label>
       </header>
 
-      <div className="cards__global">
+      <div className="cards__global">   
         {currentItems?.map((poke) => (
           <PokeCard url={poke.url} key={poke.url} />
-        ))}
+        ))} 
       </div>
 
       <PaginationAllPoke

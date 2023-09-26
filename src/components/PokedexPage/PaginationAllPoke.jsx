@@ -6,7 +6,7 @@ const PaginationAllPoke = ({ pageCount, handleChange,paginateLimit}) => {
   return (
     <>
 
-      {pageCount &&  paginateLimit &&(      
+      {pageCount && paginateLimit && (      
     <div className="pagination__button">
       <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
           <Pagination
@@ -17,8 +17,7 @@ const PaginationAllPoke = ({ pageCount, handleChange,paginateLimit}) => {
           />
       </Box>     
     </div>
-    )}
-    
+    )}    
     </>
   );
 };

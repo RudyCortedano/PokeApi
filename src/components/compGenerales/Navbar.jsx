@@ -1,13 +1,14 @@
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({pokemons,setInfoApi,setInputValue, setTypeSelected}) => {
+const Navbar = ({setItemOffset,setInputValue, setTypeSelected}) => {
 
     const inputSearch = useRef();
     const handleSearch = (e) => {
       e.preventDefault();
       setInputValue(inputSearch.current.value.trim().toLowerCase());
       setTypeSelected("Allpokemons")  
+      setItemOffset(0)
     };
   return (
     <nav className="navbar__init">
@@ -22,6 +23,7 @@ const Navbar = ({pokemons,setInfoApi,setInputValue, setTypeSelected}) => {
           <li className="navbar__item" onClick={() => {
             setTypeSelected("Allpokemons")
             setInputValue("")
+            setItemOffset(0)
           }}>All Pokemons</li>
         </ul>
         <form className="navbar__form" onSubmit={handleSearch}>
