@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useFetch from "../hooks/useFetch";
 import PokeCard from "../components/PokedexPage/PokeCard";
-import SelectType from "../components/PokedexPage/SelectType";
 import Navbar from "../components/compGenerales/Navbar";
 import PaginationAllPoke from "../components/PokedexPage/PaginationAllPoke";
 import Acoordion from "../components/PokedexPage/Acoordion";
@@ -42,7 +41,7 @@ const PokedexPage = () => {
   );
   // ------------------------------------------------------------------------------------------------//
   // paginacion
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(30);
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
 
@@ -58,42 +57,47 @@ const PokedexPage = () => {
   const paginateLimit = pokeFiltered?.length >= itemsPerPage;
   // ------------------------------------------------------------------------------------------------//
 
+  const checked = useSelector(store => store.checkedSlice)
+
   return (
     <>
       <Navbar
         setTypeSelected={setTypeSelected}
-        setInputValue={setInputValue} pokemons={pokemons}
+        setInputValue={setInputValue}
+        pokemons={pokemons}
         setInfoApi={setInfoApi}
         setItemOffset={setItemOffset}
       />
 
-      <p>Hi {nameTrainer}</p>
-
-      <input type="checkbox" className="checkPanel" id="checkPanel" />
-      <header className="header__panel">
-        <div className="header__content"> 
-
+      <input type="checkbox" className="checkPanel" id="checkPanel" /> 
+      <section className={checked ? "header__panel__nigth" : "header__panel__day"}>
+        <div className="header__content">
           <Acoordion
             setTypeSelected={setTypeSelected}
             setInfoApi={setInfoApi}
-            setInputValue={setInputValue} 
+            setInputValue={setInputValue}
             setItemOffset={setItemOffset}
             setItemsPerPage={setItemsPerPage}
-          />
-
+            />
         </div>
-      <label className="headerExitPanel" htmlFor="checkPanel"></label>
-      </header>
+        <label className="headerExitPanel" htmlFor="checkPanel"></label>
+      </section>
 
-      <div className="cards__global">   
+      <div className="welcome">
+        <div className={checked ? "welcome__content__nigth" : "welcome__content"}>
+        <p>✨✨ Hi {nameTrainer} ✨✨</p>
+        </div>
+      </div>
+
+      <div className="cards__global">
         {currentItems?.map((poke) => (
           <PokeCard url={poke.url} key={poke.url} />
-        ))} 
+        ))}
       </div>
 
       <PaginationAllPoke
         pageCount={pageCount}
-        handleChange={handleChange} 
+        handleChange={handleChange}
         paginateLimit={paginateLimit}
       />
     </>

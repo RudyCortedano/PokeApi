@@ -2,7 +2,7 @@ import { Box, Pagination } from "@mui/material";
 import React from "react";
 
 const PaginationAllPoke = ({ pageCount, handleChange,paginateLimit}) => {
-  console.log(pageCount);
+  // console.log(pageCount);
   return (
     <>
 

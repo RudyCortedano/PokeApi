@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const PokeCard = ({url}) => {
+  const checked = useSelector(store => store.checkedSlice)
 
   const [ pokemon, getPokemon ] = useFetch(url)
   const navigate = useNavigate()
@@ -11,18 +13,17 @@ const PokeCard = ({url}) => {
     getPokemon()
   }, [])
 
-//   console.log(pokemon)
-
   const handleNavigate = () =>{
-        navigate(`/pokedex/${pokemon.id}`)
+    navigate(`/pokedex/${pokemon.id}`)
   }
-
-  console.log(pokemon)
   
   return (
-    <article className='card__pokemon' onClick={handleNavigate}>
-        <header className='card__imageposition'>
-            <img className='card__image' src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
+    <article className={checked ? 'card__pokemon__nigth' : 'card__pokemon__day'} onClick={handleNavigate}>
+        <header className={checked ? 'card__imgPos__nigth' : 'card__imgPos__day'}>
+            <img 
+              className={checked ? 'card__image__nigth' : 'card__image__day'}
+              src={pokemon?.sprites.other['official-artwork'].front_default} alt="" 
+            />
         </header>
         <section className='card__section'>
             <h3 className='card__namePokemon'>{pokemon?.name}</h3>
@@ -30,7 +31,7 @@ const PokeCard = ({url}) => {
                 {
                     pokemon?.types.map((typeInfo) =>(
                         <div className={`${typeInfo.type.name} card__types__styles`} key={typeInfo.type.url}>                    
-                                <li>{typeInfo.type.name}</li>                    
+                          <li>{typeInfo.type.name}</li>                    
                         </div>
                     ))
                 }

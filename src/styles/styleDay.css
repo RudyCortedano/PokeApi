@@ -1,0 +1,114 @@
+/* --------------------------------------------------------------------------------------------------- */
+/* bg global nigth */
+.App__day {
+  background-image: url(https://w.forfun.com/fetch/7b/7b18be1395d99e3035b310dfc109cb40.jpeg);
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-attachment: fixed;
+}
+.App__day::-webkit-scrollbar {
+  width: 10px;
+  background: white;
+}
+.App__day::-webkit-scrollbar-thumb {
+  background: #071952;
+  border-radius: 10px;
+}
+/* --------------------------------------------------------------------------------------------------- */
+/* cards day*/
+.card__pokemon__day {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 0.3rem;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.card__imgPos__day {
+  text-align: center;
+  border-radius: 100vh;
+  /* ------------------------*/
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card__image__day {
+  width: 80%;
+  text-align: center;
+}
+/* --------------------------------------------------------------------------------------------------- */
+/* panel menu izquierdo day */
+.header__panel__day {
+  width: 250px;
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  left: -250px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  /* ------------------ */
+  /* ------------------ */
+}
+.checkPanel:checked ~ .header__panel__day {
+  left: 0;
+}
+.header__panel__day::-webkit-scrollbar {
+  width: 5px;
+}
+.header__panel__day::-webkit-scrollbar-thumb {
+  background: #071952;
+  border-radius: 10px;
+}
+/* --------------------------------------------------------------------------------------------------- */
+/* Acoordion */
+.content__day {
+  margin-left: 1rem;
+  transition: 150ms;
+  max-height: 0;
+  overflow: hidden;
+  list-style: none;
+  color: #000;
+}
+.menuDropdown:checked ~ .content__day{
+  max-height: 120vh;
+  transition: 1s;
+}
+.option__day {
+  text-decoration: none;
+  color: #000;
+  padding: 0.2rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #757373;
+  margin: 0.2rem 0.1rem;
+  cursor: pointer;
+  display: block;
+}
+.option__day:hover {
+  background: #141e46;
+  color: white;
+}
+.option__day:focus {
+  color: white;
+  background: #7c81ad;
+}
+/* --------------------------------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .App__day::-webkit-scrollbar {
+    width: 0;
+  }
+}

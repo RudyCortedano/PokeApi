@@ -6,7 +6,7 @@
   --color-steel: #9eb7b8;
   --color-water: #4592c4;
   --color-psychic: #f366b9;
-  --color-ground: #DAC0A3;
+  --color-ground: #dac0a3;
   --color-ice: #00d2fc;
   --color-flying: #b39cd0;
   --color-ghost: #4d5b64;
@@ -34,19 +34,13 @@
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  background-image: url(https://c.wallhere.com/photos/5c/b1/Pok_mon_Gengar_Fractalius-245794.jpg!d);
-  background-image: url(https://w.forfun.com/fetch/7b/7b18be1395d99e3035b310dfc109cb40.jpeg);
-  background-size: cover;
-  /* height: 100vh; */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
 /* -------------------------------------------------------------------------------------------------- */
 /* navbar */
 .navbar__init {
   position: fixed;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 10px;
   height: 70px;
   border-bottom: 1px solid #fff;
   background: rgba(0, 0, 0, 0.6);
@@ -76,47 +70,86 @@ body {
   justify-content: center;
   gap: 1.5rem;
 }
-.navbar__list{
+.navbar__list {
   display: flex;
   gap: 1.5rem;
   list-style: none;
 }
-.navbar__item{
+.navbar__item {
   cursor: pointer;
 }
-.navbar__link{
+.navbar__link {
   color: inherit;
   text-decoration: none;
+  padding: 0.5rem  1rem;
+  border-radius: .5rem;
 }
-.navbar__input{
+.navbar__link:hover {
+  background: teal;
+}
+.navbar__input {
   width: 0;
   padding: 0.5rem 1.5rem;
   border-radius: 100vh;
   outline: none;
   border: none;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
   padding-left: 40px;
   background-image: url(https://cdn.pixabay.com/photo/2013/10/01/16/55/magnifying-glass-189254_1280.png);
   background-position: center;
   background-size: 25px;
   background-repeat: no-repeat;
-  box-shadow: rgba(255,255,255,.5) -8px -8px 15px,
-  rgba(0,0,0,.1) 10px 10px 10px,
-  rgba(255,255,255,.5) -8px -8px 15px inset,
-  rgba(0,0,0,.1) 10px 10px 10px inset;    
+  box-shadow: rgba(255, 255, 255, 0.5) -8px -8px 15px,
+    rgba(0, 0, 0, 0.1) 10px 10px 10px,
+    rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
+    rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
 }
-.navbar__input:focus{
+.navbar__input:focus {
   width: 300px;
   cursor: initial;
   background-position-x: 10px;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* HomePage */
+.navbar__switchHomePage {
+  float: left;
+  position: fixed;
+  padding: 1rem;
+}
 .home__init {
-  display: grid;
-  place-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+.home__content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+  border-radius: 10px;
+}
+.home__input {
+  padding: 0.7rem 1rem;
+  border-radius: 100vh 0 0 100vh;
+  outline: none;
+  border: none;
+  width: 70%;
+}
+.home__button {
+  padding: 0.7rem 1rem;
+  border-radius: 0 100vh 100vh 0;
+  border: none;
+  background: teal;
+  color: white;
+  font-weight: bold;
+}
+/* -------------------------------------------------------------------------------------------------- */
+.menu__movil {
+  display: none;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* panel lateral desplegable */
@@ -147,18 +180,9 @@ body {
   width: 5px;
 }
 .header__panel::-webkit-scrollbar-thumb {
-  background: teal;
+  background: #A6F6FF;
   border-radius: 10px;
 }
-/* .headerExitPanel {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-
-} */
 /* -------------------------------------------------------------------------------------------------- */
 /* menu acordeon */
 .menuDropdown {
@@ -181,11 +205,7 @@ body {
   cursor: pointer;
   transition: 0.3s;
   width: 150px;
- 
 }
-/* .label__title2{
-  margin-top: 1rem;
-} */
 .option {
   padding: 0.2rem 1rem;
   border-radius: 10px;
@@ -194,20 +214,11 @@ body {
   cursor: pointer;
   display: block;
 }
-.option:hover {
-  background: #141e46;
-  color: white;
-}
+
 .label__title:hover {
-  box-shadow: 0 0 10px rgba(150, 7, 7, 0.68);
+  box-shadow: 0 0 10px rgba(175, 165, 165, 0.68);
 }
-.content {
-  margin-left: 1rem;
-  transition: 150ms;
-  max-height: 0;
-  overflow: hidden;
-  list-style: none;
-}
+
 .content__items {
   list-style: none;
 }
@@ -215,41 +226,27 @@ body {
   margin: 0.2rem;
   background: red;
 }
-.menuDropdown:checked ~ .content {
-  max-height: 120vh;
-  transition: 1s;
-}
 .menuDropdown:checked ~ .label__title .icon i::before {
   content: "\f107";
 }
-.option{
-  text-decoration: none;
-  color: #000;
+/* -------------------------------------------------------------------------------------------------- */
+/* switch */
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-.option:focus{
-  color: white;
-  background: blue;
+.switch__icon {
+  font-size: 1.5rem;
+}
+.switch__acordion {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* estilos de las cards de todos los pokemones */
-
-.card__pokemon {
-  background: rgba(255, 255, 255, 0.6);
-  padding: 1rem;
-  border-radius: 0.3rem;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-}
 .card__imageposition {
-  text-align: center;
-}
-.card__image {
-  width: 60%;
-  /* margin: 0 auto; */
   text-align: center;
 }
 .card__namePokemon {
@@ -268,7 +265,7 @@ body {
   text-align: center;
   border-radius: 3px;
   margin: 0.2rem 0;
-  font-size: 0.7rem;
+  /* font-size: 0.7rem; */
 }
 .card__list__stats {
   list-style: none;
@@ -279,10 +276,13 @@ body {
 .card__stat__name {
   display: block;
   text-align: center;
+  font-size: .8rem;
 }
 .card__card__stat {
   display: flex;
   justify-content: center;
+  font-weight: bold;
+  font-size: .9rem;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* Types of Pokemon */
@@ -368,23 +368,16 @@ body {
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* app responsiva */
-
 @media (max-width: 1343px) {
   .cards__global {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     gap: 1rem;
     max-width: 90%;
     transition: all 700ms ease;
-    margin: 6rem auto;  
+    margin: 1.5rem auto;
   }
-  /* .checkPanel:checked ~.cards__global{
-    transition: all 700ms ease;
-    margin: 6rem auto;  
-    max-width: 90%;
-  } */
   .header__panel {
-    /* width: 100%; */
     width: 250px;
     position: fixed;
     top: 70px;
@@ -400,21 +393,101 @@ body {
   .checkPanel:checked ~ .header__panel {
     left: 0;
   }
-}
-@media (min-width: 1344px) {
-  .cards__global {
+  .welcome {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-    gap: 1rem;
-    max-width: 1400px;
-    transition: all 700ms ease;
-    margin: 6rem 2rem;  
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+    transition: 0.6s;
+    margin-top: 5rem;
   }
-  .checkPanel:checked ~.cards__global{
-    transition: all 700ms ease;
-    max-width: 70%;
-    margin-left: 325px;
+  .welcome__content {
+    background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 5rem;
+    color: #213555;
+    text-shadow: 2px 2px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu__pc {
+    display: none;
+  }
+  .menu__movil {
+    display: block;
+  }
+}
+/* -------------------------------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .navbar__formList {
+    display: none;
+  }
+  .navbar__init {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #fff;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    color: white;
+  }
+  .welcome__content {
+    font-size: 1rem;
   }
 }
 
+/* -------------------------------------------------------------------------------------------------- */
+/* para pantallas de 15pulg hacia adelante*/
+@media (min-width: 1344px) {
+  .cards__global {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+    max-width: 90%;
+    transition: all 700ms ease;
+    margin: 1.5rem auto;
+  }
+  .checkPanel:checked ~ .cards__global {
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    max-width: 85%;
+    padding-left: 250px;
+  }
+  .welcome {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+    transition: 0.6s;
+    margin-top: 5rem;
+  }
+  .welcome__content {
+    background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 5rem;
+    color: #213555;
+    text-shadow: 2px 2px 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .checkPanel:checked ~ .welcome {
+    transition: 0.6s;
+    max-width: 85%;
+    display: block;
+    padding-left: 250px;
+  }
+}
 /* -------------------------------------------------------------------------------------------------- */
