@@ -35,7 +35,7 @@
 .card__imgPos__nigth {
   text-align: center;
   border-radius: 100vh;
-  background: white;
+  background: #efefef;
   width: 180px;
   height: 180px;
   display: flex;
@@ -46,6 +46,19 @@
   width: 80%;
   text-align: center;
 }
+/* --------------------------------------------------------------------------------------------------- */
+/* CardID nigth */
+/* .cardID__global{
+  background: rgba(255, 255, 255, 0.6);
+  margin: 3rem 6rem;
+  border-radius: 10px;
+}
+.cardID__imageposition {
+  text-align: center;
+}
+.cardID__image{
+  max-width: 80%;
+} */
 /* --------------------------------------------------------------------------------------------------- */
 /* panel menu izquierdo nigth */
 .header__panel__nigth {
@@ -82,6 +95,8 @@
   overflow: hidden;
   list-style: none;
   color: #fff;
+  margin: 0 auto;
+  padding-left: 0.5rem;
 }
 .menuDropdown:checked ~ .content__nigth{
   max-height: 120vh;
@@ -105,12 +120,19 @@
   color: white;
   background: #33BBC5;
 }
+.pagination__button__nigth button {
+  color: white;
+  padding: 0 0.8rem;
+  background: #0E0054;
+  box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6;
+  font-weight: bold;
+}
 /* --------------------------------------------------------------------------------------------------- */
 
 @media (max-width: 600px) {
   .App__nigth {
     background-image: url(https://e1.pxfuel.com/desktop-wallpaper/1014/335/desktop-wallpaper-pokemon-for-android-pokemon-android.jpg);
-    background-position-x: -7rem;
+    background-position-x: center;
   }
   .App__nigth::-webkit-scrollbar {
     width: 0;

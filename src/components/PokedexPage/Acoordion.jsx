@@ -29,6 +29,17 @@ const Acoordion = ({
             <SwitchGlobal />
           </div>
 
+          <div className="navbar__panel__movil">
+           <Link className="navbar__link label__title" to='/'>Home</Link>    
+
+            <div className="navbar__item" onClick={() => {
+                setTypeSelected("Allpokemons")
+                setInputValue("")
+                setItemOffset(0)
+              }}><Link className="navbar__link label__title" >All Pokemons</Link></div>
+
+          </div>
+
           <input type="checkbox" id="checkDropdown" className="menuDropdown" />
           <label htmlFor="checkDropdown" className="label__title">
             <span className="panel__title">Types</span>
@@ -85,7 +96,7 @@ const Acoordion = ({
                     setItemOffset(0);
                   }}
                   htmlFor="checkPanel"
-                  className="option"
+                  className={checked ? "option__nigth":"option__day"}
                   key={type.url}
                 >
                   {type.name}
@@ -121,7 +132,7 @@ const Acoordion = ({
               <label
                 htmlFor="checkPanel"
                 key={num}
-                className="option"
+                className={checked ? "option__nigth":"option__day"}
                 onClick={() => setItemsPerPage(num)}
               >
                 {num}

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&family=Poppins:wght@400;500;700&display=swap");
 /* -------------------------------------------------------------------------------------------------- */
 /* Plantilla de colores */
 :root {
@@ -33,6 +34,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Mooli", sans-serif;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* navbar */
@@ -58,11 +60,25 @@
 }
 .navbar__logo {
   height: 60px;
+  cursor: pointer;
+  transition: .3s;
+}
+.navbar__logo:active{
+  transform: scale(1.1);
 }
 .navbar__iconMenu {
   color: white;
   font-size: 2rem;
   cursor: pointer;
+  border-radius: 5px;
+  padding: .3rem;
+  border: 1px solid transparent;
+  transition: .3s;
+}
+.navbar__iconMenu:hover{
+  border: 1px solid #fff;
+  background: white;
+  color: black;
 }
 .navbar__formList {
   display: flex;
@@ -81,8 +97,8 @@
 .navbar__link {
   color: inherit;
   text-decoration: none;
-  padding: 0.5rem  1rem;
-  border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 .navbar__link:hover {
   background: teal;
@@ -110,6 +126,9 @@
   cursor: initial;
   background-position-x: 10px;
 }
+.input__movil__position {
+  display: none;
+}
 /* -------------------------------------------------------------------------------------------------- */
 /* HomePage */
 .navbar__switchHomePage {
@@ -121,34 +140,61 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 100vh;
-  width: 100%;
-  flex-direction: column;
+}
+.modal button {
+  border-radius: 100vh;
+  background: #12486b;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px #d2e0fb, 0 0 20px #d2e0fb, 0 0 20px #d2e0fb;
+}
+.modal button:hover {
+  background: #419197;
+  box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6;
+}
+.inputModal {
+  display: none;
+}
+.inputModal:checked ~ .modal button {
+  display: none;
 }
 .home__content {
   text-align: center;
-  background: rgba(255, 255, 255, 0.5);
-  padding: 1rem;
-  border-radius: 10px;
 }
 .home__input {
-  padding: 0.7rem 1rem;
-  border-radius: 100vh 0 0 100vh;
+  /* width: 100%; */
+  padding: 0.5rem 0.5rem;
+  border-radius: 100vh;
   outline: none;
   border: none;
-  width: 70%;
+  background: #efefef;
+  margin: 0.5rem 0;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/601px-Pokebola-pokeball-png-0.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 10px;
+  padding-left: 40px;
+  box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6;
 }
 .home__button {
-  padding: 0.7rem 1rem;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 0 100vh 100vh 0;
+  border-radius: 100vh;
   border: none;
   background: teal;
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 /* -------------------------------------------------------------------------------------------------- */
 .menu__movil {
+  display: none;
+}
+.navbar__panel__movil{
   display: none;
 }
 /* -------------------------------------------------------------------------------------------------- */
@@ -180,7 +226,7 @@
   width: 5px;
 }
 .header__panel::-webkit-scrollbar-thumb {
-  background: #A6F6FF;
+  background: #a6f6ff;
   border-radius: 10px;
 }
 /* -------------------------------------------------------------------------------------------------- */
@@ -190,10 +236,7 @@
 }
 .panel__container {
   width: 100%;
-  margin: 1rem 0;
-}
-.panel__container .menuDropdown {
-  display: none;
+  margin: 1rem auto;
 }
 .label__title {
   display: flex;
@@ -206,19 +249,9 @@
   transition: 0.3s;
   width: 150px;
 }
-.option {
-  padding: 0.2rem 1rem;
-  border-radius: 10px;
-  border: 1px solid #757373;
-  margin: 0.2rem 0.1rem;
-  cursor: pointer;
-  display: block;
-}
-
 .label__title:hover {
   box-shadow: 0 0 10px rgba(175, 165, 165, 0.68);
 }
-
 .content__items {
   list-style: none;
 }
@@ -246,9 +279,6 @@
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* estilos de las cards de todos los pokemones */
-.card__imageposition {
-  text-align: center;
-}
 .card__namePokemon {
   text-align: center;
 }
@@ -276,13 +306,13 @@
 .card__stat__name {
   display: block;
   text-align: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 .card__card__stat {
   display: flex;
   justify-content: center;
   font-weight: bold;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* Types of Pokemon */
@@ -357,18 +387,43 @@
   background-color: var(--color-dark);
 }
 /* -------------------------------------------------------------------------------------------------- */
+/* .progresbar__stat{
+  width: 500px;
+  height: 30px;
+  margin: 1rem 0;
+  background: blue;
+} */
+/* -------------------------------------------------------------------------------------------------- */
 /* pagination */
-.pagination__button {
-  margin-bottom: 3rem;
+.pagination__general {
+  margin: 3rem 0;
 }
-.pagination__button button {
-  padding: 0 0.8rem;
-  background: #aed2ff;
-  box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6;
-}
+
 /* -------------------------------------------------------------------------------------------------- */
 /* app responsiva */
 @media (max-width: 1343px) {
+  .welcome {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+    transition: 0.6s;
+    margin-top: 6rem;
+  }
+  .welcome__content {
+    background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 5rem;
+    color: #213555;
+    text-shadow: 2px 2px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .cards__global {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
@@ -393,28 +448,7 @@
   .checkPanel:checked ~ .header__panel {
     left: 0;
   }
-  .welcome {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    max-width: 90%;
-    display: block;
-    margin: 0 auto;
-    transition: 0.6s;
-    margin-top: 5rem;
-  }
-  .welcome__content {
-    background: rgba(255, 255, 255, 0.6);
-    width: 100%;
-    height: 5rem;
-    color: #213555;
-    text-shadow: 2px 2px 10px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   .menu__pc {
     display: none;
   }
@@ -423,11 +457,30 @@
   }
 }
 /* -------------------------------------------------------------------------------------------------- */
+/* movil */
+@media (max-width: 900px) {
+  .navbar__list {
+    display: none;
+  }
+  .navbar__panel__movil{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+}
 @media (max-width: 600px) {
-  .navbar__formList {
+  .welcome {
+    margin-top: 1rem;
+  }
+  .welcome__content {
+    font-size: 1rem;
+  }
+  .navbar__form {
     display: none;
   }
   .navbar__init {
+    display: none;
     position: fixed;
     width: 100%;
     height: 70px;
@@ -440,27 +493,40 @@
     padding: 0 2rem;
     color: white;
   }
-  .welcome__content {
-    font-size: 1rem;
+  .navbar__iconLogo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .input__movil__position {
+    display: block;
+    margin-top: 5rem;
+    margin-inline: 2rem;
+  }
+  .input__movil {
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+    border-radius: 100vh;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    padding-left: 50px;
+    background-image: url(https://cdn.pixabay.com/photo/2013/10/01/16/55/magnifying-glass-189254_1280.png);
+    background-position-x: 15px;
+    background-position-y: center;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    box-shadow: rgba(255, 255, 255, 0.5) -8px -8px 15px,
+      rgba(0, 0, 0, 0.1) 10px 10px 10px,
+      rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
+      rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
   }
 }
 
 /* -------------------------------------------------------------------------------------------------- */
 /* para pantallas de 15pulg hacia adelante*/
 @media (min-width: 1344px) {
-  .cards__global {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    gap: 1rem;
-    max-width: 90%;
-    transition: all 700ms ease;
-    margin: 1.5rem auto;
-  }
-  .checkPanel:checked ~ .cards__global {
-    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-    max-width: 85%;
-    padding-left: 250px;
-  }
   .welcome {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
@@ -468,7 +534,7 @@
     display: block;
     margin: 0 auto;
     transition: 0.6s;
-    margin-top: 5rem;
+    margin-top: 6rem;
   }
   .welcome__content {
     background: rgba(255, 255, 255, 0.6);
@@ -487,6 +553,19 @@
     transition: 0.6s;
     max-width: 85%;
     display: block;
+    padding-left: 250px;
+  }
+  .cards__global {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+    max-width: 90%;
+    transition: all 700ms ease;
+    margin: 1.5rem auto;
+  }
+  .checkPanel:checked ~ .cards__global {
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    max-width: 85%;
     padding-left: 250px;
   }
 }

@@ -4,6 +4,12 @@ import { setTrainerSlice } from "../store/slices/trainer.slice";
 import { useNavigate } from "react-router-dom";
 import SwitchGlobal from "../components/compGenerales/SwitchGlobal";
 
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import ModalHome from "../components/HomePage/ModalHome";
+
 const HomePage = () => {
 
   const inputTrainer = useRef();
@@ -28,24 +34,11 @@ const HomePage = () => {
       </nav> 
 
       <div className="home__init">
-
-        <div className="home__content">
-          <h1 className="home__title">Pokedex</h1>
-              <h2 className="home__welcome">Hi Trainer!</h2>
-              <p>To start, please, enter your trainer name</p>
-              <form onSubmit={handleTrainer}>
-                <input required className="home__input" ref={inputTrainer} type="text" />
-                <button className="home__button">Start!</button>
-              </form>      
-        </div>
-
+        <ModalHome handleTrainer={handleTrainer} inputTrainer={inputTrainer} />
       </div>
 
     </header>
   </>
-
-
-
   );
 };
 

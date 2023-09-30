@@ -9,6 +9,7 @@ import { setCheckedSlice } from "./store/slices/check.slice";
 import SwitchGlobal from "./components/compGenerales/SwitchGlobal";
 import { useState } from "react";
 
+
 import './styles/styleDay.css'
 import './styles/styleNigth.css'
 

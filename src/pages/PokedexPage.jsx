@@ -69,6 +69,10 @@ const PokedexPage = () => {
         setItemOffset={setItemOffset}
       />
 
+      <section className="input__movil__position">
+        <input  className="input__movil" type="text" />
+      </section>
+
       <input type="checkbox" className="checkPanel" id="checkPanel" /> 
       <section className={checked ? "header__panel__nigth" : "header__panel__day"}>
         <div className="header__content">

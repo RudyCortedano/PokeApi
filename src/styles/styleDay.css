@@ -82,8 +82,10 @@
   overflow: hidden;
   list-style: none;
   color: #000;
+  margin: 0 auto;
+  padding-left: 0.5rem;
 }
-.menuDropdown:checked ~ .content__day{
+.menuDropdown:checked ~ .content__day {
   max-height: 120vh;
   transition: 1s;
 }
@@ -104,6 +106,13 @@
 .option__day:focus {
   color: white;
   background: #7c81ad;
+}
+.pagination__button__day button {
+  /* -------------------- */
+  padding: 0 0.8rem;
+  background: #aed2ff;
+  box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6;
+  font-weight: bold;
 }
 /* --------------------------------------------------------------------------------------------------- */
 
