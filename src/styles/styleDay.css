@@ -47,6 +47,33 @@
   text-align: center;
 }
 /* --------------------------------------------------------------------------------------------------- */
+/* Componente ID  */
+.cardID__imageStats {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  color: #000;
+  border: 1px solid #fff;
+  padding-bottom: .5rem;
+}
+.CardID__title__day{
+  color: black;
+}
+.cardID__move__list {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  padding: 1rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid #fff;
+}
+/* --------------------------------------------------------------------------------------------------- */
 /* panel menu izquierdo day */
 .header__panel__day {
   width: 250px;

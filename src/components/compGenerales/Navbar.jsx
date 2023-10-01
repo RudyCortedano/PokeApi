@@ -1,18 +1,25 @@
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import SwitchGlobal from "./SwitchGlobal";
 import { useSelector } from "react-redux";
 
-const Navbar = ({ setItemOffset, setInputValue, setTypeSelected }) => {
+const Navbar = ({
+  setItemOffset,
+  setInputValue,
+  setTypeSelected,
+  inputValue,
+}) => {
+  const navigate = useNavigate();
+
   const inputSearch = useRef();
+
   const handleSearch = (e) => {
     e.preventDefault();
     setInputValue(inputSearch.current.value.trim().toLowerCase());
+    // navigate('/pokemonFound');
     setTypeSelected("Allpokemons");
     setItemOffset(0);
   };
 
-  const navigate = useNavigate();
   const checked = useSelector((store) => store.checkedSlice);
 
   return (
@@ -47,9 +54,10 @@ const Navbar = ({ setItemOffset, setInputValue, setTypeSelected }) => {
                 setTypeSelected("Allpokemons");
                 setInputValue("");
                 setItemOffset(0);
+            
               }}
             >
-              <Link className="navbar__link">All Pokemons</Link>
+              <Link to='/pokedex' className="navbar__link">All Pokemons</Link>
             </li>
           </ul>
 

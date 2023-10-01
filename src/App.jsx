@@ -12,6 +12,7 @@ import { useState } from "react";
 
 import './styles/styleDay.css'
 import './styles/styleNigth.css'
+import PokemonsFound from "./pages/PokemonsFound";
 
 function App() {
   
@@ -24,8 +25,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage   />} />
         <Route element={<ProtectedRoutes />}>
-          <Route path="/pokedex" element={<PokedexPage   />} />
+          <Route path="/pokedex" element={<PokedexPage />} />
           <Route path="/pokedex/:id" element={<PokedexIDPages   />} />
+          <Route path="/pokemonFound" element={<PokemonsFound   />} />
         </Route>
       </Routes>
         </div>

@@ -47,18 +47,32 @@
   text-align: center;
 }
 /* --------------------------------------------------------------------------------------------------- */
-/* CardID nigth */
-/* .cardID__global{
-  background: rgba(255, 255, 255, 0.6);
-  margin: 3rem 6rem;
+/* Componente ID */
+.cardID__imageStats__nigth{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+  color: white;
+  border: 1px solid #fff;
+  padding-bottom: .5rem;
 }
-.cardID__imageposition {
-  text-align: center;
+.CardID__title__nigth{
+  color: white;
 }
-.cardID__image{
-  max-width: 80%;
-} */
+.cardID__move__listNigth{
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 1rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid #fff;
+}
 /* --------------------------------------------------------------------------------------------------- */
 /* panel menu izquierdo nigth */
 .header__panel__nigth {

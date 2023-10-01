@@ -67,6 +67,7 @@ const PokedexPage = () => {
         pokemons={pokemons}
         setInfoApi={setInfoApi}
         setItemOffset={setItemOffset}
+        inputValue={inputValue}
       />
 
       <section className="input__movil__position">
