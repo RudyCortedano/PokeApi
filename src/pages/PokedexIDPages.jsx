@@ -18,8 +18,6 @@ const PokedexIDPages = () => {
 
   return (
     <>
-    {/* <Navbar/> */}
-
       <nav className="navbar__switchHomePage">
         <SwitchGlobal/>
       </nav>

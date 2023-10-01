@@ -52,7 +52,7 @@
   gap: 1.5rem;
   padding: 0 2rem;
   color: white;
-  z-index: 7;
+  z-index: 5;
 }
 .navbar__iconLogo {
   display: flex;
@@ -614,8 +614,8 @@
     rgba(0, 0, 0, 0.1) 10px 10px 10px,
     rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
     rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
-    z-index: 2;
     position: absolute;
+    z-index: 1;
   }
   .navbar__input:focus {
     width: 75%;
@@ -647,7 +647,6 @@
     display: block;
     margin-top: 5rem;
     margin-inline: 2rem;
-    background: red;
     width: max-content;
   }
 }

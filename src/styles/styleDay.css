@@ -31,11 +31,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  transition: .3s;
-  z-index: 5;
+  transition: 0.3s;
+  z-index: 4;
 }
-.card__pokemon__day:hover{
-  background: #DDEEF5;
+.card__pokemon__day:hover {
+  background: #ddeef5;
   box-shadow: 0 0 20px rgba(210, 210, 210, 0.9);
 }
 .card__imgPos__day {
@@ -64,9 +64,9 @@
   border-radius: 10px;
   color: #000;
   border: 1px solid #fff;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
-.CardID__title__day{
+.CardID__title__day {
   color: black;
 }
 .cardID__move__list {
@@ -91,6 +91,7 @@
   transition: 0.5s;
   display: flex;
   align-items: center;
+  padding-top: 2rem;
   flex-direction: column;
   overflow-y: scroll;
   /* ------------------ */
