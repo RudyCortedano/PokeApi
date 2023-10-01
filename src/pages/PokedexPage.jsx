@@ -35,7 +35,7 @@ const PokedexPage = () => {
     } else {
       getTypesPokemons(typeSelected);
     }
-  }, [typeSelected,inputValue]);
+  }, [typeSelected]);
 
   // ------------------------------------------------------------------------------------------------//
   // filtro de busqueda

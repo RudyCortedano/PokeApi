@@ -1,12 +1,11 @@
 import { Ripples } from "@uiball/loaders";
 import React from "react";
-import { useSelector } from "react-redux";
 
 const Spinner = () => {
-  const checked = useSelector(store => store.checkedSlice)
+
   return (
     <div className="spinner">
-      <Ripples size={100} speed={2} color={checked ? "white":"black"} />
+      <Ripples size={120} speed={2} color="white" />
     </div>
   );
 };

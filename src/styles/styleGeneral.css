@@ -437,7 +437,7 @@
 }
 /* -------------------------------------------------------------------------------------------------- */
 /* Spinner y Background animado */
-.spinner{
+.spinner {
   display: grid;
   place-content: center;
   height: 100vh;
@@ -517,9 +517,6 @@
     padding: 0 2rem;
     color: white;
   }
-  .navbar__form2 {
-    display: none;
-  }
   .welcome {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
@@ -566,7 +563,6 @@
   .checkPanel:checked ~ .header__panel {
     left: 0;
   }
-
   .menu__pc {
     display: none;
   }
@@ -577,9 +573,6 @@
 /* -------------------------------------------------------------------------------------------------- */
 /* movil */
 @media (max-width: 900px) {
-  .navbar__form2 {
-    display: none;
-  }
   .navbar__list {
     display: none;
   }
@@ -592,16 +585,42 @@
 }
 @media (max-width: 600px) {
   .welcome {
-    margin-top: 1rem;
+    margin-top: 9rem;
   }
-  .navbar__form2 {
-    display: flex;
-  }
+
   .welcome__content {
     font-size: 1rem;
   }
-  .navbar__form {
-    display: none;
+  .navbar__form{
+    margin: 0 auto;
+  }
+  .navbar__input {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    margin-inline: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 100vh;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    padding-left: 45px;
+    background-image: url(https://cdn.pixabay.com/photo/2013/10/01/16/55/magnifying-glass-189254_1280.png);
+    background-position: 20px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    box-shadow: rgba(255, 255, 255, 0.5) -8px -8px 15px,
+    rgba(0, 0, 0, 0.1) 10px 10px 10px,
+    rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
+    rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
+    z-index: 2;
+    position: absolute;
+  }
+  .navbar__input:focus {
+    width: 75%;
+    cursor: initial;
+    background-position-x: 10px;
   }
   .navbar__init {
     display: none;
@@ -613,6 +632,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 1.5rem;
     padding: 0 2rem;
     color: white;
@@ -629,33 +649,6 @@
     margin-inline: 2rem;
     background: red;
     width: max-content;
-  }
-  .navbar__form {
-    display: none;
-    flex-wrap: wrap;
-  }
-  .navbar__form2 {
-    margin-top: 5rem;
-    margin-inline: 1rem;
-  }
-  .navbar__input2 {
-    width: 100%;
-    padding: 0.5rem 1.5rem;
-    border-radius: 100vh;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    padding-left: 45px;
-    background-image: url(https://cdn.pixabay.com/photo/2013/10/01/16/55/magnifying-glass-189254_1280.png);
-    background-position-x: 15px;
-    background-position-y: center;
-    background-size: 25px;
-    background-repeat: no-repeat;
-    box-shadow: rgba(255, 255, 255, 0.5) -8px -8px 15px,
-      rgba(0, 0, 0, 0.1) 10px 10px 10px,
-      rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
-      rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
   }
 }
 /* -------------------------------------------------------------------------------------------------- */
@@ -701,9 +694,6 @@
     grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
     max-width: 85%;
     padding-left: 250px;
-  }
-  .navbar__form2 {
-    display: none;
   }
 }
 /* -------------------------------------------------------------------------------------------------- */

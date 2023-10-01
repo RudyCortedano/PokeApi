@@ -14,7 +14,6 @@ const Navbar = ({ setItemOffset, setInputValue, setTypeSelected }) => {
     setItemOffset(0);
   };
 
-
   return (
     <div className={checked ? "navbar__nigth" : "navbar__day"}>
       <nav className="navbar__init">
@@ -63,9 +62,6 @@ const Navbar = ({ setItemOffset, setInputValue, setTypeSelected }) => {
         </div>
       </nav>
 
-          <form className="navbar__form2" onSubmit={handleSearch}>
-            <input className="navbar__input2" type="text" ref={inputSearch} />
-          </form>
 
     </div>
   );
