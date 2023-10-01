@@ -5,6 +5,6 @@ import checkedSlice from './slices/check.slice'
 export default configureStore({
     reducer: {
         trainerSlice,
-        checkedSlice
+        checkedSlice,        
     }
 })

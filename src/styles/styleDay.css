@@ -31,6 +31,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  transition: .3s;
+  z-index: 5;
+}
+.card__pokemon__day:hover{
+  background: #DDEEF5;
+  box-shadow: 0 0 20px rgba(210, 210, 210, 0.9);
 }
 .card__imgPos__day {
   text-align: center;
@@ -89,6 +95,7 @@
   overflow-y: scroll;
   /* ------------------ */
   /* ------------------ */
+  z-index: 6;
 }
 .checkPanel:checked ~ .header__panel__day {
   left: 0;
@@ -140,6 +147,23 @@
   background: #aed2ff;
   box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6;
   font-weight: bold;
+  z-index: 1;
+}
+/* --------------------------------------------------------------------------------------------------- */
+/* error y rutafail */
+.HasError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  height: 100vh;
+}
+.RouteFail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  height: 100vh;
 }
 /* --------------------------------------------------------------------------------------------------- */
 

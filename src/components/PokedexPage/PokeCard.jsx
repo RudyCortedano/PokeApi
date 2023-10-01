@@ -16,11 +16,10 @@ const PokeCard = ({url}) => {
   const handleNavigate = () =>{
     navigate(`/pokedex/${pokemon.id}`)
   }
-
-  console.log(pokemon)
   
   return (
-    <article className={checked ? 'card__pokemon__nigth' : 'card__pokemon__day'} onClick={handleNavigate}> 
+    <>
+        <article className={checked ? 'card__pokemon__nigth' : 'card__pokemon__day'} onClick={handleNavigate}> 
         <header className={checked ? 'card__imgPos__nigth' : 'card__imgPos__day'}>
             <img 
               className={checked ? 'card__image__nigth' : 'card__image__day'}
@@ -50,7 +49,8 @@ const PokeCard = ({url}) => {
                 }
             </ul>
         </section>
-    </article>
+    </article>     
+    </>
   )
 }
 

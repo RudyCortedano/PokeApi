@@ -4,15 +4,13 @@ import HomePage from "./pages/HomePage";
 import PokedexPage from "./pages/PokedexPage";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import PokedexIDPages from "./pages/PokedexIDPages";
-import { useDispatch, useSelector } from "react-redux";
-import { setCheckedSlice } from "./store/slices/check.slice";
-import SwitchGlobal from "./components/compGenerales/SwitchGlobal";
-import { useState } from "react";
-
+import {  useSelector } from "react-redux";
 
 import './styles/styleDay.css'
 import './styles/styleNigth.css'
 import PokemonsFound from "./pages/PokemonsFound";
+import RouteFail from "./pages/RouteFail";
+import HasError from "./components/PokedexPage/HasError";
 
 function App() {
   
@@ -20,7 +18,6 @@ function App() {
 
   return (
     <>
-
       <div className={checked ? "App__nigth" : "App__day"}>
       <Routes>
         <Route path="/" element={<HomePage   />} />
@@ -28,7 +25,9 @@ function App() {
           <Route path="/pokedex" element={<PokedexPage />} />
           <Route path="/pokedex/:id" element={<PokedexIDPages   />} />
           <Route path="/pokemonFound" element={<PokemonsFound   />} />
+          <Route path="/error" element={<HasError />} />
         </Route>
+          <Route path="*" element={<RouteFail />} />
       </Routes>
         </div>
     </>

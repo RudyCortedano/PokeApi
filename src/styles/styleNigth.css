@@ -14,7 +14,7 @@
   background: white;
 }
 .App__nigth::-webkit-scrollbar-thumb {
-  background: #33BBC5;
+  background: #29c5d0;
   border-radius: 10px;
 }
 /* --------------------------------------------------------------------------------------------------- */
@@ -31,6 +31,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  transition: .3s;
+  z-index: 5;
+}
+.card__pokemon__nigth:hover{
+  background: #39c5d8b3;
+  box-shadow: 0 0 20px #F3C5FF;
 }
 .card__imgPos__nigth {
   text-align: center;
@@ -89,6 +95,7 @@
   overflow-y: scroll;
   color: white;
   box-shadow: 1px 3px 10px rgba(255, 255, 255, 0.6);
+  z-index: 6;
 }
 .checkPanel:checked ~ .header__panel__nigth {
   left: 0;
@@ -140,6 +147,25 @@
   background: #0E0054;
   box-shadow: 0 0 10px #5cd2e6, 0 0 20px #5cd2e6, 0 0 20px #5cd2e6;
   font-weight: bold;
+  z-index: 1;
+}
+/* --------------------------------------------------------------------------------------------------- */
+/* error y rutafail */
+.HasError__nigth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+  height: 100vh;
+}
+.RouteFail__nigth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  height: 100vh;
 }
 /* --------------------------------------------------------------------------------------------------- */
 

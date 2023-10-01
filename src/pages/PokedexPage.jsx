@@ -5,6 +5,9 @@ import PokeCard from "../components/PokedexPage/PokeCard";
 import Navbar from "../components/compGenerales/Navbar";
 import PaginationAllPoke from "../components/PokedexPage/PaginationAllPoke";
 import Acoordion from "../components/PokedexPage/Acoordion";
+import { Navigate } from "react-router-dom";
+import BackgroundAnimated from "../components/compGenerales/BackgroundAnimated";
+import Spinner from "../components/compGenerales/Spinner";
 
 const PokedexPage = () => {
   const nameTrainer = useSelector((store) => store.trainerSlice);
@@ -32,7 +35,7 @@ const PokedexPage = () => {
     } else {
       getTypesPokemons(typeSelected);
     }
-  }, [typeSelected]);
+  }, [typeSelected,inputValue]);
 
   // ------------------------------------------------------------------------------------------------//
   // filtro de busqueda
@@ -57,54 +60,66 @@ const PokedexPage = () => {
   const paginateLimit = pokeFiltered?.length >= itemsPerPage;
   // ------------------------------------------------------------------------------------------------//
 
-  const checked = useSelector(store => store.checkedSlice)
+  const checked = useSelector((store) => store.checkedSlice);
+
+  if(loading){
+    return <Spinner/>
+  }
 
   return (
     <>
-      <Navbar
-        setTypeSelected={setTypeSelected}
-        setInputValue={setInputValue}
-        pokemons={pokemons}
-        setInfoApi={setInfoApi}
-        setItemOffset={setItemOffset}
-        inputValue={inputValue}
-      />
-
-      <section className="input__movil__position">
-        <input  className="input__movil" type="text" />
-      </section>
-
-      <input type="checkbox" className="checkPanel" id="checkPanel" /> 
-      <section className={checked ? "header__panel__nigth" : "header__panel__day"}>
-        <div className="header__content">
-          <Acoordion
+    <BackgroundAnimated/>
+      {currentItems?.length === 0 ? (      
+        <Navigate to='/error' />
+      ) : (
+        <>
+          <Navbar
             setTypeSelected={setTypeSelected}
-            setInfoApi={setInfoApi}
             setInputValue={setInputValue}
+            pokemons={pokemons}
+            setInfoApi={setInfoApi}
             setItemOffset={setItemOffset}
-            setItemsPerPage={setItemsPerPage}
-            />
-        </div>
-        <label className="headerExitPanel" htmlFor="checkPanel"></label>
-      </section>
+          />  
 
-      <div className="welcome">
-        <div className={checked ? "welcome__content__nigth" : "welcome__content"}>
-        <p>✨✨ Hi {nameTrainer} ✨✨</p>
-        </div>
-      </div>
+          <input type="checkbox" className="checkPanel" id="checkPanel" />
+          <section
+            className={checked ? "header__panel__nigth" : "header__panel__day"}
+          >
+            <div className="header__content">
+              <Acoordion
+                setTypeSelected={setTypeSelected}
+                setInfoApi={setInfoApi}
+                setInputValue={setInputValue}
+                setItemOffset={setItemOffset}
+                setItemsPerPage={setItemsPerPage}
+              />
+            </div>
+            <label className="headerExitPanel" htmlFor="checkPanel"></label>
+          </section>
 
-      <div className="cards__global">
-        {currentItems?.map((poke) => (
-          <PokeCard url={poke.url} key={poke.url} />
-        ))}
-      </div>
+          <div className="welcome">
+            <div
+              className={
+                checked ? "welcome__content__nigth" : "welcome__content"
+              }
+            >
+              <p>✨✨ Hi {nameTrainer} ✨✨</p>
+            </div>
+          </div>
 
-      <PaginationAllPoke
-        pageCount={pageCount}
-        handleChange={handleChange}
-        paginateLimit={paginateLimit}
-      />
+          <div className="cards__global">
+            {currentItems?.map((poke) => (
+              <PokeCard url={poke.url} key={poke.url} />
+            ))}
+          </div>
+
+          <PaginationAllPoke
+            pageCount={pageCount}
+            handleChange={handleChange}
+            paginateLimit={paginateLimit}
+          />
+        </>
+      )}
     </>
   );
 };

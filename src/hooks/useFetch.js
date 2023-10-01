@@ -27,8 +27,7 @@ const useFetch = (url) => {
             const obj ={
                 results: res.data.pokemon.map(e => e.pokemon)
             }
-            setInfoApi(obj)
-            // setInfoApi(res.data.results.pokemon.map(e => e.pokemon))            
+            setInfoApi(obj)       
             setHasError(false)
         })
         .catch(err => {
