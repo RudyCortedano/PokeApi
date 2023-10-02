@@ -16,6 +16,8 @@ const PokedexIDPages = () => {
 
   const checked = useSelector(store => store.checkedSlice)
 
+  console.log(pokemon)
+
   return (
     <>
       <nav className="navbar__switchHomePage">
@@ -50,13 +52,14 @@ const PokedexIDPages = () => {
           <h3>Stats</h3>
           <ul>
             {pokemon?.stats.map((estadistica, key) => (
+              <>
+              <span>{estadistica.stat.name}</span>
               <div
                 key={key}             
                 style={{
                   width: "250px",
                   height: "20px",
-                  background: "white",
-                  marginBlock: "16px",
+                  background: "white",      
                   borderRadius: "10px",
                 }}
               >
@@ -65,8 +68,7 @@ const PokedexIDPages = () => {
                   style={{
                     height: "20px",
                     width: `${estadistica.base_stat}px`,
-                    color: "white",
-                    marginBlock: "16px",
+                    color: "white",          
                     paddingInline: ".5rem",
                     borderRadius: "10px",
                     fontSize: "12px",
@@ -74,11 +76,15 @@ const PokedexIDPages = () => {
                     alignItems:"center"
                   }}
                 >
-                  {estadistica.base_stat}
+                  {estadistica.base_stat}          
                 </div>
+         
               </div>
+          
+              </>
             ))}
-          </ul>
+           
+          </ul> 
         </section>
         </header>       
 

@@ -23,6 +23,7 @@ const PokedexPage = () => {
     setInfoApi,
     hasError,
     loading,
+    setLoading
   ] = useFetch(url);
   // ------------------------------------------------------------------------------------------------//
   //  enpoints de pokemon general y por tipos
@@ -79,6 +80,8 @@ const PokedexPage = () => {
             pokemons={pokemons}
             setInfoApi={setInfoApi}
             setItemOffset={setItemOffset}
+            loading={loading}
+            setLoading={setLoading}
           />  
 
           <input type="checkbox" className="checkPanel" id="checkPanel" />

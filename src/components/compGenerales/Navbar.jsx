@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Spinner from "./Spinner";
 
-const Navbar = ({ setItemOffset, setInputValue, setTypeSelected }) => {
+const Navbar = ({ setItemOffset, setInputValue, setTypeSelected, loading,setLoading }) => {
   const checked = useSelector((store) => store.checkedSlice);
 
   const inputSearch = useRef();
@@ -11,7 +12,11 @@ const Navbar = ({ setItemOffset, setInputValue, setTypeSelected }) => {
     e.preventDefault();
     setInputValue(inputSearch.current.value.trim().toLowerCase());
     setTypeSelected("Allpokemons");
-    setItemOffset(0);
+    setItemOffset(0);    
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 300);
   };
 
   return (
