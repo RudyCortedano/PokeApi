@@ -3,12 +3,13 @@ import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { useSelector } from "react-redux";
 import SwitchGlobal from "../components/compGenerales/SwitchGlobal";
+import Spinner from "../components/compGenerales/Spinner";
 // import Navbar from "../components/compGenerales/Navbar";
 
 const PokedexIDPages = () => {
   const { id } = useParams();
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-  const [pokemon, getPokemon, hasError, loading] = useFetch(url);
+  const [pokemon, getPokemon, opcion3, opcion4, opcion5, loading] = useFetch(url);
 
   useEffect(() => {
     getPokemon();
@@ -17,6 +18,10 @@ const PokedexIDPages = () => {
   const checked = useSelector(store => store.checkedSlice)
 
   console.log(pokemon)
+
+  if(loading){
+    return <Spinner/>
+  }
 
   return (
     <>
