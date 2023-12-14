@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { useSelector } from "react-redux";
 import SwitchGlobal from "../components/compGenerales/SwitchGlobal";
@@ -15,9 +15,8 @@ const PokedexIDPages = () => {
     getPokemon();
   }, [id]);
 
+  const navigate = useNavigate()
   const checked = useSelector(store => store.checkedSlice)
-
-  console.log(pokemon)
 
   if(loading){
     return <Spinner/>
@@ -26,6 +25,7 @@ const PokedexIDPages = () => {
   return (
     <>
       <nav className="navbar__switchHomePage">
+        <label className="navbar__btnBack" onClick={() => navigate(-1)}><i className="fa-solid fa-arrow-left-long"></i></label>
         <SwitchGlobal/>
       </nav>
       <article className="cardID__global">
@@ -48,8 +48,8 @@ const PokedexIDPages = () => {
             }            
           </ul>
           <ul className="cardID__date__list">
-            <li>{pokemon?.height/10}m</li>
-            <li>{pokemon?.weight/10}kg</li>
+            <li><b>Height: </b>{pokemon?.height/10}m</li>
+            <li><b>Weight: </b>{pokemon?.weight/10}kg</li>
           </ul>
         </section>
 

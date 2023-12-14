@@ -66,8 +66,6 @@ const Navbar = ({ setItemOffset, setInputValue, setTypeSelected, loading,setLoad
 
         </div>
       </nav>
-
-
     </div>
   );
 };

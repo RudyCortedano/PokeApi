@@ -133,8 +133,19 @@
 /* -------------------------------------------------------------------------------------------------- */
 /* HomePage */
 .navbar__switchHomePage {
-  float: left;
-  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.navbar__btnBack{
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #fff;
+  padding: 3px 1rem;
+  border-radius: 10px;
+}
+.navbar__not_found{
   padding: 1rem;
 }
 .home__init {
@@ -414,10 +425,8 @@
   display: flex;
   gap: 2rem;
   justify-content: center;
-  font-weight: bold;
 }
 .cardID__stats {
-  /* background: yellow; */
   padding-inline: 1rem;
   display: flex;
   align-items: center;
