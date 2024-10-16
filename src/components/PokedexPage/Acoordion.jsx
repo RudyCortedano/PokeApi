@@ -61,6 +61,7 @@ const Acoordion = ({
               >
                 All Pokemons
               </Link>
+
               {types?.results.map((type) => (
                 <Link
                   onClick={() => {
@@ -74,6 +75,7 @@ const Acoordion = ({
                 >
                   {type.name}
                 </Link>
+                
               ))}
             </div>
             <div className="menu__movil">

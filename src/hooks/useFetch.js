@@ -37,7 +37,7 @@ const useFetch = (url) => {
         .finally(() => setLoading(false))
     }
 
-    return [infoApi, getApi,getTypeApi, setInfoApi, hasError, loading,setLoading]
+    return [infoApi, getApi,getTypeApi, setInfoApi, hasError, loading, setLoading]
 }
 
 export default useFetch
